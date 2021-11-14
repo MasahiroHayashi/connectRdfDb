@@ -1,5 +1,5 @@
 <?php
-	// SPARQLクエリを配列に
+	// SPARQLクエリを配列化
 	$param = array(
 		'query' => 'select * where {?s ?p ?o.}limit 10' ,
 		'datasource' => 'OLACLEMIRKODB2' ,
@@ -34,6 +34,7 @@
 	// データ取得
 	$contents = file_get_contents($url, false, $context);
 	
+	// 取得したデータの表示
 	echo "<pre>";
 	echo $contents ;
 	echo "</pre>";
