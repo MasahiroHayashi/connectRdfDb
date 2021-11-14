@@ -3,7 +3,7 @@
 **getStatLOD.php**<br>
 　こちらは統計LODに接続するものです。ちゃんと動きます。
 
-**getOracleRDF.php**<br>Cancel changes
+**getOracleRDF.php**<br>
 　こちらは Oracle の RDF Graph Server に接続するために書きましたがうまく動きません…。
 <br><br>
 ---------------------------------------------------------------------------<br>
