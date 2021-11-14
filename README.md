@@ -2,11 +2,13 @@
 
 ## １　PHPのソースコード
 **getStatLOD.php**<br>
-　こちらはe-Statの統計LODに接続するものです。ちゃんと動きます。
+　こちらはe-Statの統計LODに接続するものです。ちゃんと動きます。<br>
+　デモ：　https://www.mirko.jp/test/getStatLOD.php
 
 **getOracleRDF.php**<br>
 　こちらは Oracle の RDF Graph Server に接続するために書きましたがうまく動きません…。<br>
- 　この形を基本としてWEBプログラムを作りたいのですが動作せずに困っています。
+　この形を基本としてWEBプログラムを作りたいのですが動作せずに困っています。<br>
+　デモ：　https://www.mirko.jp/test/getOracleRDF.php
 <br><br>
 ## ２　悩んでいる点
 なお、ブラウザのURL入力フォームに以下のようにクエリを渡しますと・・・
@@ -27,6 +29,7 @@ https://140.83.84.199:8001/orardf/api/v1/datasets/query?query=select ?s ?p ?o wh
 <br>
 ですが、外部サーバーに設置したPHPプログラムからはこの認証が突破できず困っています。<br><br>
 
+## ３　やりたいこと
 オラクルのRDFグラフデータベースの使い方として想定している方法が２種類あります。<br>
 ひとつは、特定のWEBアプリからの限定アクセス。<br>
 もうひとつは、公開エンドポイントとして誰でもデータのロードができるようにする。<br>
