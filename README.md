@@ -6,7 +6,7 @@
 　デモ：　https://www.mirko.jp/test/getStatLOD.php
 
 **getOracleRDF.php**<br>
-　こちらは Oracle の RDF Graph Server に接続するために書きましたがうまく動きません…。<br>
+　こちらは上記の統計LODに接続するプログラムをベースとして、Oracle の RDF Graph Server に接続するために書きましたがうまく動きません…。<br>
 　この形を基本としてWEBプログラムを作りたいのですが動作せずに困っています。<br>
 　デモ：　https://www.mirko.jp/test/getOracleRDF.php
 <br><br>
