@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ORACLE GRAPH DB SPARQL TEST FORM</title>
+<style type="text/css">
+html {
+	padding: 0;
+	margin: 0;
+}
+body {
+	padding: 0;
+	margin: 0;
+}
+.parent {
+	width: 100%;
+}
+.inner {
+	padding:30px;
+	width: 850px;
+	margin: auto;
+}
+table.type1 {
+	width:100%;
+	border: 0px solid #ccc;
+}
+table.type1 th {
+	border: 1px solid #ccc;
+	font-size: 12px;
+	padding: 4px;
+	text-align: center;
+}
+table.type1 td {
+	border: 1px solid #ccc;
+	font-size: 12px;
+	padding: 2px;
+}
+#query {
+	width:800px;
+	height:200px;
+}
+.button {
+	width:150px;
+	height:30px;
+}
+</style>
+<script>
+function execute() {
+	document.getElementById("results").innerHTML = "connecting...　";
+    const endpoint = 'ora_ajax.php';
+    const method = "POST";
+	const query = document.getElementById("query").value;
+    sparqlQuery(query,endpoint,method) ;
+}
+
+function sparqlQuery(queryStr,endpoint,method) { 
+    const querypart = "data=" + encodeURIComponent(queryStr);
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open(method, endpoint, true);	
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8'); 
+    xmlhttp.onreadystatechange = function() {
+        if(xmlhttp.readyState == 4) {
+            if(xmlhttp.status == 200 || xmlhttp.status == 201 ) {
+                onSuccessQuery(xmlhttp.responseText);
+            } else {
+                document.getElementById("results").innerHTML = "error: " + xmlhttp.status + " / " + xmlhttp.responseText ;
+            }
+        }
+    }
+    xmlhttp.send(querypart);
+}
+
+function onSuccessQuery(text) {
+    const jsonObj = JSON.parse(text);
+    let head , rows ;
+    if (jsonObj.responseJSON) {
+        head = jsonObj.responseJSON.head.vars;
+        rows = jsonObj.responseJSON.results.bindings;
+    } else {
+        if(!(jsonObj.head)){
+            document.getElementById("results").innerHTML = "SPARQL syntax error" ;
+            return;
+        }
+        head = jsonObj.head.vars;
+        rows = jsonObj.results.bindings;
+    }
+    if (rows.length === 0) {
+        document.getElementById("results").innerHTML = "There is no data that matches the search condition." ;
+        return;
+    }
+    makeTable(head, rows);
+}
+
+function makeTable(head, rows) {
+    let html = "<table class='type1'><tr>";
+    for (let i=0; i<head.length; i++) {
+        html += "<th>" + head[i] + "</th>";
+    }
+    html += "</tr>";
+    for (let i=0; i<rows.length; i++) {
+        html += "<tr>";
+        for (let j=0; j<head.length; j++) {
+            let col = head[j];
+            if(rows[i][col] != null){
+				if(rows[i][col].value.slice(0,4) == "http"){
+					html += "<td>" + "<a href ='" + rows[i][col].value + "' target='_blank'>" + rows[i][col].value + "</a>" + "</td>";
+					
+				}else{
+					html += "<td>" + rows[i][col].value + "</td>";
+				}
+            }else{
+                html += "<td></td>";
+            }
+        }
+        html += "</tr>";
+    }
+    html += "</table>";
+    document.getElementById("results").innerHTML = '<input type="button" value="erase" onclick="erase()" class="button">' ;
+    document.getElementById("results").innerHTML += html;
+}
+
+function erase() {
+    document.getElementById("results").innerHTML = '' ;
+}
+
+</script>
+</head>
+<body>
+<div class="parent" id="parent">
+<div class="inner">
+<h2>ORACLE GRAPH DB SPARQL TEST FORM</h2>
+<form id="form1" name="myForm"> 
+<textarea id="query"">
+SELECT *
+WHERE { ?s ?p ?o } 
+LIMIT 5
+</textarea>
+<br>
+<input type="button" value="execute" onclick="execute()" class="button">
+</form>
+<br>
+<div id="results"></div>
+</div>
+</div>
+</body>
+</html>

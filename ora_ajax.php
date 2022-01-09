@@ -1,11 +1,6 @@
 <?php
 // SPARQLクエリを配列化
-$query = array(
-	'query' => '
-
-select * where {?s ?p ?o} limit 10 
-
-');
+$query = array('query' => $_POST['data']);
 
 // 配列からURLエンコードされたクエリ文字列を生成
 $query = http_build_query($query, "", "&");
@@ -35,14 +30,11 @@ $context = array(
 // ストリームコンテキストに変換
 $context = stream_context_create($context);
 
-// アクセスするURLにパラメータ付加
-$url = 'https://********.***/orardf/api/v1/datasets/query'.$param;
+// アクセスするURL
+$url = 'https://*******.***/orardf/api/v1/datasets/query'.$param;
 
-// データ取得
+// アクセスするURLにパラメータ付加
 $contents = file_get_contents($url, false, $context);
 
-// 取得したデータの表示
-echo "<pre>";
-echo $contents ;
-echo "</pre>";
+echo $contents
 ?>
