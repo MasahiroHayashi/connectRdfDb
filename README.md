@@ -1,4 +1,4 @@
-# Oracle の RDF Graph Server にPHPで接続するプログラム（未完成）
+# Oracle の RDF Graph Server にPHPで接続するプログラム
 
 ## １　PHPのソースコード
 **getStatLOD.php**<br>
