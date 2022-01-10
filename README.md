@@ -6,14 +6,14 @@
 <br><br>
 
 ## sp.html と ora_ajax.php
-sp.html と ora_ajax.php を同じディレクトリに設置してください。<br>
-sp.html の入力フォームにSPARQLクエリを入力しリクエストボタンを押すと、JavascriptのAJAX通信で ora_ajax.php にクエリを渡します。
-ora_ajax.php はオラクルクラウドのRDFグラフデータベースにアクセスして結果を取得し、sp.html に返して表示する、というものです。<br><br>
+**sp.html** と **ora_ajax.php** を同じディレクトリに設置してください。<br>
+**sp.html** の入力フォームにSPARQLクエリを入力しリクエストボタンを押すと、JavascriptのAJAX通信で **ora_ajax.php** にクエリを渡します。
+**ora_ajax.php** はオラクルクラウドのRDFグラフデータベースにアクセスして結果を取得し、**sp.html** に返して表示する、というものです。<br><br>
 デモ：　https://www.mirko.jp/pyramid/ora_db/sp.html
 <br><br>
 
 ## デモのデータベースに取り込んだデータ
-テストデータとして、01_1_data2020.ttl と 01_2_data2020.ttl をアップロードし、バルクロードしてデータベースに取り込んでいます。
+テストデータとして、**01_1_data2020.ttl** と **01_2_data2020.ttl** をアップロードし、バルクロードしてデータベースに取り込んでいます。
 <br><br>
 
 ## Oracle RDF Graph Server の構築方法
@@ -24,7 +24,7 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-5.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(5) - REST APIを呼び出す</a><br>
 
 ## 今後の課題
-「ORACLE RDF Graph Server and Query UI」を利用して自作のRDFファイルをアップロードする際、ファイルサイズが大きいと「ヒープサイズエラー」が出てアップロードできません。jetty.sh の JAVA_OPTIONS の調整でなんとかなりそうな気がしたのですが、いまいち上手くいったりいかなかったりで安定しません。
+**ORACLE RDF Graph Server and Query UI** を利用して自作のRDFファイルをアップロードする際、ファイルサイズが大きいと「ヒープサイズエラー」が出てアップロードできません。**jetty.sh** の **JAVA_OPTIONS** の調整でなんとかなりそうな気がしたのですが、いまいち上手くいったりいかなかったりで安定しません。
 ```bash
 Jan 10, 2022 1:59:47 AM oracle.graph.rdf.server.UploadServlet doPost
 WARNING: Uploader failed to process a request due to java.lang.OutOfMemoryError: Java heap space.
