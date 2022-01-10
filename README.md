@@ -14,7 +14,7 @@ ora_ajax.php はオラクルクラウドのRDFグラフデータベースにア�
 
 ## Oracle RDF Graph Server の構築方法
 Yuji N. さんの以下の記事を参考に構築したサーバーを利用しています。<br>
-Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を使い、パブリックIPアドレスにドメインを設定しSSL化して、REST APIを利用する、というものです。<br>
+Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を使い、パブリックIPアドレスにドメインを設定しSSL化して、Basic認証を使ったREST APIを利用する、というものです。<br>
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-1.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(1) - 環境構築</a><br>
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-4.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(4) - Jetty 9.xのSSL化</a><br>
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-5.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(5) - REST APIを呼び出す</a><br>
