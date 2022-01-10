@@ -24,7 +24,7 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-5.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(5) - REST APIを呼び出す</a><br>
 
 ## 今後の課題
-ORACLE RDF Graph Server and Query UI を利用して自作のRDFファイルをアップロードする際、ファイルサイズが大きいと「ヒープサイズエラー」が出てアップロードできません。jetty.sh の JAVA_OPTIONS の調整でなんとかなりそうな気がしたのですが、いまいち上手くいったりいかなかったりで安定しません。
+「ORACLE RDF Graph Server and Query UI」を利用して自作のRDFファイルをアップロードする際、ファイルサイズが大きいと「ヒープサイズエラー」が出てアップロードできません。jetty.sh の JAVA_OPTIONS の調整でなんとかなりそうな気がしたのですが、いまいち上手くいったりいかなかったりで安定しません。
 ```bash
 Jan 10, 2022 1:59:47 AM oracle.graph.rdf.server.UploadServlet doPost
 WARNING: Uploader failed to process a request due to java.lang.OutOfMemoryError: Java heap space.
