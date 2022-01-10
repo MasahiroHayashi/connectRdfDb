@@ -25,3 +25,7 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 
 ## 今後の課題
 ORACLE RDF Graph Server and Query UI を利用して自作のRDFファイルをアップロードする際、ファイルサイズが大きいと「ヒープサイズエラー」が出てアップロードできません。jetty.sh の JAVA_OPTIONS の調整でなんとかなりそうな気がしたのですが、いまいち上手くいったりいかなかったりで安定しません。
+```bash
+Jan 10, 2022 1:59:47 AM oracle.graph.rdf.server.UploadServlet doPost
+WARNING: Uploader failed to process a request due to java.lang.OutOfMemoryError: Java heap space.
+```
