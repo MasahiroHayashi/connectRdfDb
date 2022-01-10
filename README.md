@@ -12,6 +12,10 @@ ora_ajax.php はオラクルクラウドのRDFグラフデータベースにア�
 デモ：　https://www.mirko.jp/pyramid/ora_db/sp.html
 <br><br>
 
+## デモのDBに取り込んだデータ
+テストデータとして、01_1_data2020.ttl と 01_2_data2020.ttl をアップロードし、ダンプデータとして取り込んでいます。
+<br><br>
+
 ## Oracle RDF Graph Server の構築方法
 Yuji N. さんの以下の記事を参考に構築したサーバーを利用しています。（Oracle Cloud の無料利用枠（Always Free）を利用）<br>
 Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を使い、パブリックIPアドレスにドメインを設定しSSL化して、Basic認証を利用してREST APIを呼び出す、というものです。<br>
