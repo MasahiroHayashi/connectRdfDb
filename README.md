@@ -1,41 +1,20 @@
 # Oracle の RDF Graph Server にPHPで接続するプログラム
 
-## １　PHPのソースコード
-**getStatLOD.php**<br>
-　こちらはe-Statの統計LODに接続するものです。ちゃんと動きます。<br>
-　デモ：　https://www.mirko.jp/test/getStatLOD.php
-
-**getOracleRDF.php**<br>
-　こちらは上記の統計LODに接続するプログラムをベースとして、Oracle の RDF Graph Server に接続するために書きましたがうまく動きません。この形を基本としてWEBプログラムを作りたいのですが動作せずに困っています。<br>
-　デモ：　https://www.mirko.jp/test/getOracleRDF.php
+## getOracleRDF.php
+自サーバにおいたPHPプログラムで、オラクルクラウドのRDFグラフデータベースにSPARQLクエリをリクエストし、そのレスポンスを表示するものです。最もシンプルな形です。<br><br>
+デモ：　https://www.mirko.jp/pyramid/ora_db/getOracleRDF.php
 <br><br>
-## ２　悩んでいる点
-なお、ブラウザのURL入力フォームに以下のようにクエリを渡しますと・・・
-```bash
-https://140.83.84.199:8001/orardf/api/v1/datasets/query?query=select ?s ?p ?o where { ?s ?p ?o} limit 10&datasource=OLACLEMIRKODB2&datasetDef={"metadata":[{"networkOwner":"ADMIN","networkName":"SEMNET01","models":["data1980"]}]}
-```
-<br>
-以下の認証画面が出ます。これに自分のユーザー名とパスワードを入力して突破するとブラウザからはしばらくはデータが取得できます。<br>
 
-![123](https://user-images.githubusercontent.com/39124856/141647549-9fde362d-591c-4957-8bf3-cae11ac01ed2.png)
+## sp.html と ora_ajax.php
+sp.html と ora_ajax.php を同じディレクトリに設置してください。<br>
+sp.html の入力フォームにSPARQLクエリを入力しリクエストボタンを押すと、JavascriptのAJAX通信で ora_ajax.php にクエリを渡します。
+ora_ajax.php はオラクルクラウドのRDFグラフデータベースにアクセスして結果を取得し、sp.html に返して表示する、というものです。<br><br>
+デモ：　https://www.mirko.jp/pyramid/ora_db/sp.html
+<br><br>
 
-<br>
-こんな感じでJSONで取得できます。<br>
-
-![444](https://user-images.githubusercontent.com/39124856/141662587-636e73b1-ec0d-4b04-b0a6-4a1fb9ec2c5d.png)
-
-
-<br>
-ですが、外部サーバーに設置したPHPプログラムからはこの認証が突破できず困っています。<br><br>
-
-## ３　やりたいこと
-オラクルのRDFグラフデータベースの使い方として想定している方法が２種類あります。<br>
-ひとつは、特定のWEBアプリからの限定アクセス。<br>
-もうひとつは、公開エンドポイントとして誰でもデータのロードができるようにする。<br>
-（更新系クエリはダメ。もし可能であればCORSを許可したい。）<br><br>
-ネットでいろいろ調べましたが自分には分かりませんでした。<br>
-ポート7002のコンソール画面で何か設定するのかもしれません。（難しすぎて断念しました）<br>
-https://140.83.84.199:7002/console<br>
-もし方法をご存じであればご教授いただけると幸いです。<br>
-
-
+## Oracle RDF Graph Server の構築方法
+Yuji N. さんの以下の記事を参考に構築したサーバーを利用しています。<br>
+概要は、WEBサーバーとして Jetty を使い、ドメインを設定しSSL化して、REST APIを利用する、というものです。<br>
+* <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-1.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(1) - 環境構築</a><br>
+* <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-4.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(4) - Jetty 9.xのSSL化</a><br>
+* <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-5.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(5) - REST APIを呼び出す</a><br>
