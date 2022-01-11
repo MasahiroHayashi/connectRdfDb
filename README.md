@@ -29,3 +29,4 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 Jan 10, 2022 1:59:47 AM oracle.graph.rdf.server.UploadServlet doPost
 WARNING: Uploader failed to process a request due to java.lang.OutOfMemoryError: Java heap space.
 ```
+　→→→　解決できそうなヒントをいただきましたので今度試してみます！
