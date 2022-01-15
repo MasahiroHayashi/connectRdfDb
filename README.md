@@ -19,6 +19,9 @@
 * https://www.mirko.jp/pyramid/data/data2020_oldMunicipal.ttl  （323MB　約721万トリプル）<br>
 * https://www.mirko.jp/pyramid/data/data2020_J_oldMunicipal.ttl  （321MB　約721万トリプル）<br>
 <br>
+![222](https://user-images.githubusercontent.com/39124856/149617041-c2f3bb07-a245-4f25-95c5-27c6b4278bda.png)
+
+
 
 ## Oracle RDF Graph Server の構築方法
 Yuji N. さんの以下の記事を参考に構築したサーバーを利用しています。（Oracle Cloud の無期限無料枠（Always Free）を利用）<br>
