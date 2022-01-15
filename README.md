@@ -19,8 +19,7 @@
 * https://www.mirko.jp/pyramid/data/data2020_oldMunicipal.ttl  （323MB　約721万トリプル）<br>
 * https://www.mirko.jp/pyramid/data/data2020_J_oldMunicipal.ttl  （321MB　約721万トリプル）<br>
 <br>
-![画像](https://user-images.githubusercontent.com/39124856/149617041-c2f3bb07-a245-4f25-95c5-27c6b4278bda.png)
-
+<img src="https://user-images.githubusercontent.com/39124856/149617371-83077803-5a40-452e-a5da-b8368c895d9d.png" />
 
 
 ## Oracle RDF Graph Server の構築方法
@@ -36,7 +35,11 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 上述のデモデータのようなサイズの大きいRDFデータを扱いたいとき、コンピュート・インスタンスのメモリが1GBだとアップロード／バルクロードの際にエラーが出て取り込めません。<br>
 対応方法は、インスタンス作成の際にシェイプを選択するとき ***Ampere*** を選択しメモリー量を増やすことです。デフォルトで出てくる AMD や Intel のシェイプは、無料枠であれば 1CPU / メモリ1GB 固定ですが、***Ampere*** であれば、最大 4CPU / メモリ24GB まで無料枠内で増やすことが可能です。上述のデモでは ***Ampere*** シェイプの 3CPU / 18GB を使用していますが非常に快適です。
 
-#### コツ2　ドメインの取得
+#### コツ2　アップロードサイズの制限の設定
+![555](https://user-images.githubusercontent.com/39124856/149617676-b2b367f8-385c-41a7-8732-8e353f4f4c01.png)
+
+
+#### コツ3　ドメインの取得
 REST API として外部のアプリケーションから呼び出したいときは、オラクルクラウドの制限により、ドメインとSSLを設定しないと実行できません。<br>
 ドメインを取得するにあたり、上述の Yuji N. さんの記事では  [Google Domains](https://domains.google/intl/ja_jp/) を利用するように記載がありますが、お金を一銭もかけたくない場合は  [freenom](https://www.freenom.com/)  を使うとよいです。私はこのデモで freenom の無料ドメインを利用していますが全く問題なく利用できています。
 無料のSSL証明書は [ZeroSSL](https://zerossl.com/) 一択ですね。
