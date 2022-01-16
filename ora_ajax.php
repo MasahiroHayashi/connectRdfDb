@@ -30,10 +30,10 @@ $context = array(
 // ストリームコンテキストに変換
 $context = stream_context_create($context);
 
-// アクセスするURL
+// アクセスするURLにパラメータ付加
 $url = 'https://*******.***/orardf/api/v1/datasets/query'.$param;
 
-// アクセスするURLにパラメータ付加
+// データ取得
 $contents = file_get_contents($url, false, $context);
 
 echo $contents
