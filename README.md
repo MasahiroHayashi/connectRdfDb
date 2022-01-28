@@ -40,7 +40,7 @@ Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を�
 
 
 ### コツ3　ドメインの取得
-REST API として外部のアプリケーションから呼び出したいときは、オラクルクラウドの制限により、ドメインとSSLを設定しないと実行できません。<br>
+REST API として外部のアプリケーションから呼び出したいときは、オラクルクラウドデータベースの制限により、ドメインとSSLを設定しないと実行できません。<br>
 ドメインを取得するにあたり、上述の Yuji Nakakoshi さんの記事では  [Google Domains](https://domains.google/intl/ja_jp/) を利用するように記載がありますが、お金を一銭もかけたくない場合は  [freenom](https://www.freenom.com/)  を使うとよいです。私はこのデモで freenom の無料ドメインを利用していますが全く問題なく利用できています。
 無料のSSL証明書は [ZeroSSL](https://zerossl.com/) 一択ですね。
 
