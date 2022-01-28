@@ -13,7 +13,7 @@
 <br><br>
 
 ## デモのデータベースに取り込んだデータ
-テストデータとして、以下の4ファイルをアップロードし、バルクロードしてデータベースに取り込んでいます。この4ファイルをデータベースに取り込むと、Olacle Cloud の無期限無料枠（Always Free）で使用できる20GBのストレージを、ほぼ100％使用することとなります。<br>
+テストデータとして、以下の4ファイルをアップロードし、バルクロードしてデータベースに取り込んでいます。この4ファイルをデータベースに取り込むと、Olacle Cloud の無期限無料枠（Always Free）で使用できる20GBのストレージをほぼ100％使用することとなります。<br>
 * https://www.mirko.jp/pyramid/data/data2020.ttl  （293MB　約668万トリプル）<br>
 * https://www.mirko.jp/pyramid/data/data2020_J.ttl  （294MB　約668万トリプル）<br>
 * https://www.mirko.jp/pyramid/data/data2020_oldMunicipal.ttl  （323MB　約721万トリプル）<br>
@@ -23,7 +23,7 @@
 
 
 ## Oracle RDF Graph Server の構築方法
-Yuji N. さんの以下の記事を参考に構築したサーバーを利用しています。（Oracle Cloud の無期限無料枠（Always Free）を利用）<br>
+Yuji Nakakoshi さんの以下の記事を参考に構築したサーバーを利用しています。（Oracle Cloud の無期限無料枠（Always Free）を利用）<br>
 Oracle RDF Graph ServerをデプロイするWebサーバーとして Jetty を使い、パブリックIPアドレスにドメインを設定しSSL化して、Basic認証を利用してREST APIを呼び出す、というものです。<br>
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-1.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(1) - 環境構築</a><br>
 * <a href="https://apexugj.blogspot.com/2021/12/rdf-graph-server-4.html" target="_blank">Oracle RDF Graph ServerをAutonomous Databaseで使用する(4) - Jetty 9.xのSSL化</a><br>
