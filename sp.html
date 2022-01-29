@@ -3,47 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>ORACLE GRAPH DB SPARQL TEST FORM</title>
-<style type="text/css">
-html {
-	padding: 0;
-	margin: 0;
-}
-body {
-	padding: 0;
-	margin: 0;
-}
-.parent {
-	width: 100%;
-}
-.inner {
-	padding:30px;
-	width: 850px;
-	margin: auto;
-}
-table.type1 {
-	width:100%;
-	border: 0px solid #ccc;
-}
-table.type1 th {
-	border: 1px solid #ccc;
-	font-size: 12px;
-	padding: 4px;
-	text-align: center;
-}
-table.type1 td {
-	border: 1px solid #ccc;
-	font-size: 12px;
-	padding: 2px;
-}
-#query {
-	width:800px;
-	height:200px;
-}
-.button {
-	width:150px;
-	height:30px;
-}
-</style>
 <script>
 function execute() {
 	document.getElementById("results").innerHTML = "connecting...　";
@@ -71,19 +30,13 @@ function sparqlQuery(queryStr,endpoint,method) {
 }
 
 function onSuccessQuery(text) {
+	if(text == ""){
+		document.getElementById("results").innerHTML = "SPARQL syntax error" ;
+		return;
+	}
     const jsonObj = JSON.parse(text);
-    let head , rows ;
-    if (jsonObj.responseJSON) {
-        head = jsonObj.responseJSON.head.vars;
-        rows = jsonObj.responseJSON.results.bindings;
-    } else {
-        if(!(jsonObj.head)){
-            document.getElementById("results").innerHTML = "SPARQL syntax error" ;
-            return;
-        }
-        head = jsonObj.head.vars;
-        rows = jsonObj.results.bindings;
-    }
+    const head = jsonObj.head.vars;
+	const rows = jsonObj.results.bindings;
     if (rows.length === 0) {
         document.getElementById("results").innerHTML = "There is no data that matches the search condition." ;
         return;
@@ -92,7 +45,8 @@ function onSuccessQuery(text) {
 }
 
 function makeTable(head, rows) {
-    let html = "<table class='type1'><tr>";
+    let html = '<input type="button" value="erase" onclick="erase()">' ;
+	html += "<table border=1><tr>";
     for (let i=0; i<head.length; i++) {
         html += "<th>" + head[i] + "</th>";
     }
@@ -103,7 +57,7 @@ function makeTable(head, rows) {
             let col = head[j];
             if(rows[i][col] != null){
 				if(rows[i][col].value.slice(0,4) == "http"){
-					html += "<td>" + "<a href ='" + rows[i][col].value + "' target='_blank'>" + rows[i][col].value + "</a>" + "</td>";
+					html += "<td>" + "<a href ='" + rows[i][col].value + "'>" + rows[i][col].value + "</a>" + "</td>";
 					
 				}else{
 					html += "<td>" + rows[i][col].value + "</td>";
@@ -115,8 +69,7 @@ function makeTable(head, rows) {
         html += "</tr>";
     }
     html += "</table>";
-    document.getElementById("results").innerHTML = '<input type="button" value="erase" onclick="erase()" class="button">' ;
-    document.getElementById("results").innerHTML += html;
+    document.getElementById("results").innerHTML = html;
 }
 
 function erase() {
@@ -126,11 +79,9 @@ function erase() {
 </script>
 </head>
 <body>
-<div class="parent" id="parent">
-<div class="inner">
-<h2>ORACLE GRAPH DB SPARQL TEST FORM</h2>
+<h1>ORACLE GRAPH DB SPARQL TEST FORM</h1>
 <form id="form1" name="myForm"> 
-<textarea id="query"">
+<textarea id="query" style="width:600px;height:200px;">
 SELECT *
 WHERE { ?s ?p ?o } 
 LIMIT 5
@@ -140,7 +91,5 @@ LIMIT 5
 </form>
 <br>
 <div id="results"></div>
-</div>
-</div>
 </body>
 </html>
